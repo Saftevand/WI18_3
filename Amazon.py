@@ -3,7 +3,6 @@ from review import Review
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import math
-from scipy import spatial
 
 file = open("C:/Users/mathias/Desktop/Musical_Instruments_5.json", "r")
 
@@ -56,8 +55,6 @@ def uniform_vectors(x : list, y : list):
     for i in y:
         y_1.append(i)
 
-    xx = 0
-    yy = 0
 
 
     for i in x_1:
@@ -87,11 +84,12 @@ for u in test[:10]:
     count += 1
     k_nearest = []
     for i in train:
+
         x, y = uniform_vectors(i.rVector, u.rVector)
         x = np.array(x).reshape(1, -1)
         y = np.array(y).reshape(1, -1)
         i.similarity = cosine_similarity(x, y)
-        #i.similarity = 1 - spatial.distance.cosine(x, y)
+
         if (len(k_nearest) < k):
             k_nearest.append(i)
         else:
