@@ -115,8 +115,6 @@ def uniform_vectors(x : list, y : list):
     for i in y:
         y_1.append(i)
 
-    xx = 0
-    yy = 0
 
 
     for i in x_1:
